@@ -1,0 +1,17 @@
+server:
+  port: 7909
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://peer1:7900/eureka/
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/luxin6666/SpringCloudConfigServerLearn.git
+          search-paths: config-repo

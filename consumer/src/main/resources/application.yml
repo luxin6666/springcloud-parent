@@ -1,0 +1,11 @@
+server:
+  port: 7902
+spring:
+  application:
+    name: consumer
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://peer1:7900/eureka/,http://peer2:6900/eureka/,http://peer3:5900/eureka/

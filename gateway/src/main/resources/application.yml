@@ -1,0 +1,23 @@
+server:
+  port: 7908
+spring:
+  application:
+    name: gateway
+#  security:
+#    user: #配置zuul进入服务的登录名及密码
+#      name: luxin
+#      password: 123
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://peer1:7900/eureka/,http://peer2:6900/eureka/,http://peer3:5900/eureka/
+zuul:
+  ignored-services: "*"
+  routes:
+    myprovider:
+      path: /query/**
+      serviceId: provider
+      stripPrefix: false #使用前缀
+  prefix: /pre

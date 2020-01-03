@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: eureka
+  cloud:
+    config:
+      discovery:
+        service-id: CONFIG-SERVER
+        enabled: true
+      profile: dev
+      label: master
+server:
+  port: 7900

@@ -1,0 +1,31 @@
+#spring:
+#  application:
+#    name: configclient #指定了配置文件的应用名
+#  cloud:
+#    config:
+#      uri: http://localhost:7909/ #Config server的uri
+#      profile: dev #指定的环境
+#      label: master #指定分支
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+spring:
+  application:
+    name: configclient
+  cloud:
+    config:
+      discovery:
+        service-id: CONFIG-SERVER
+        enabled: true
+      profile: dev
+      label: master
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:7900/eureka/,http://peer2:6900/eureka/,http://peer3:5900/eureka/
+  instance:
+    prefer-ip-address: true
+server:
+  port: 7910

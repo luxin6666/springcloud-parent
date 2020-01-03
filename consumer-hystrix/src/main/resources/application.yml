@@ -1,0 +1,14 @@
+server:
+  port: 7907
+spring:
+  application:
+    name: consumer-hystrix
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://peer1:7900/eureka/,http://peer2:6900/eureka/,http://peer3:5900/eureka/
+feign:
+  hystrix:
+    enabled: true
